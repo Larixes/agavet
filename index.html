@@ -73,8 +73,6 @@
                 <a href="#o-nas" class="hover:text-primary transition">O nas</a>
                 <a href="#uslugi" class="hover:text-primary transition">Usługi</a>
                 <a href="#kwalifikacje" class="hover:text-primary transition">Kwalifikacje</a>
-                <a href="#galeria" class="hover:text-primary transition">Galeria</a>
-                <a href="#porady" class="hover:text-primary transition">Porady</a>
                 <a href="#zespol" class="hover:text-primary transition">Zespół</a>
                 <a href="#kontakt" class="hover:text-primary transition">Kontakt</a>
                 <a href="tel:221234567" class="bg-primary text-white px-4 py-2 rounded-full font-bold hover:bg-primaryDark transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
@@ -94,8 +92,6 @@
                 <a href="#o-nas" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">O nas</a>
                 <a href="#uslugi" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Usługi</a>
                 <a href="#kwalifikacje" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Kwalifikacje</a>
-                <a href="#galeria" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Galeria</a>
-                <a href="#porady" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Porady</a>
                 <a href="#zespol" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Zespół</a>
                 <a href="#kontakt" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Kontakt</a>
                 <a href="tel:221234567" class="bg-primary text-white py-3 rounded-lg font-bold flex justify-center items-center gap-2">
@@ -377,49 +373,156 @@
         </div>
     </section>
 
-    <!-- GALERIA -->
-    <section id="galeria" class="py-16 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Galeria Pacjentów</h2>
-                <p class="text-gray-600">Nasi dzielni pacjenci i codzienna praca przychodni.</p>
+    <!-- ZESPÓŁ -->
+    <section id="zespol" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12">Nasz Zespół</h2>
+            <!-- Placeholder dla zespołu -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                 <!-- Lekarz 1 -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lekarz" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">lek. wet. Anna Kowalska</h3>
+                        <p class="text-primary font-medium text-sm">Chirurg, Internista</p>
+                    </div>
+                 </div>
+                 <!-- Lekarz 2 -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lekarz" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">lek. wet. Piotr Nowak</h3>
+                        <p class="text-primary font-medium text-sm">Kardiolog, USG</p>
+                    </div>
+                 </div>
+                 <!-- Technik -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition">
+                    <img src="https://images.unsplash.com/photo-1594824476969-23315fa401e0?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Technik" class="w-full h-64 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-1">tech. wet. Julia Wiśniewska</h3>
+                        <p class="text-primary font-medium text-sm">Technik Weterynarii</p>
+                    </div>
+                 </div>
             </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <!-- Zdjęcia galeria (Placeholdery) -->
-                <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-xl cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 1">
-                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition"></div>
+        </div>
+    </section>
+
+    <!-- GODZINY I KONTAKT -->
+    <section id="kontakt" class="py-16 md:py-24 bg-white relative">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 shadow-2xl rounded-3xl overflow-hidden bg-white">
+                
+                <!-- Lewa strona: Info -->
+                <div class="bg-gray-900 text-white p-10 md:p-16 flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <h2 class="font-heading text-3xl font-bold mb-8 relative z-10">Skontaktuj się z nami</h2>
+                    
+                    <div class="space-y-8 relative z-10">
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-map-pin text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Adres</h3>
+                                <p class="text-gray-300">ul. Wrzeciono 33 lok. B<br>01-963 Warszawa</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-phone text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Telefon</h3>
+                                <p class="text-gray-300 mb-2">Rejestracja wizyt:</p>
+                                <a href="tel:221234567" class="text-2xl font-bold text-white hover:text-primary transition">22 123 45 67</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-clock text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-3">Godziny otwarcia</h3>
+                                <ul class="space-y-2 text-gray-300 text-sm">
+                                    <li class="flex justify-between w-48 border-b border-gray-700 pb-1">
+                                        <span>Poniedziałek - Piątek</span>
+                                        <span class="font-bold text-white">10:00 - 21:00</span>
+                                    </li>
+                                    <li class="flex justify-between w-48 border-b border-gray-700 pb-1">
+                                        <span>Sobota</span>
+                                        <span class="font-bold text-white">11:00 - 16:00</span>
+                                    </li>
+                                    <li class="flex justify-between w-48 border-b border-gray-700 pb-1">
+                                        <span>Niedziela</span>
+                                        <span class="font-bold text-white">11:00 - 14:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 2">
-                </div>
-                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 3">
-                </div>
-                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1596272875729-ed2c21ebbbda?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 4">
-                </div>
-                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
-                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 5">
+
+                <!-- Prawa strona: Mapa -->
+                <div class="h-[400px] lg:h-auto bg-gray-200 relative">
+                     <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.038073574218!2d20.93345431579916!3d52.29654197977254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecbe7f7e9a0ed%3A0x6b4f7b6b8b8b8b8b!2sWrzeciono+33%2C+01-963+Warszawa!5e0!3m2!1spl!2spl!4v1620000000000!5m2!1spl!2spl" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- PORADY -->
-    <section id="porady" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-2">Porady Weterynarza</h2>
-                    <p class="text-gray-600">Baza wiedzy dla odpowiedzialnych właścicieli.</p>
-                </div>
-                <!-- <a href="#" class="text-primary font-bold hover:underline hidden md:block">Zobacz wszystkie wpisy &rarr;</a> -->
+    <!-- CTA - UMÓW WIZYTĘ -->
+    <section class="bg-primary text-white py-12">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div>
+                <h2 class="text-2xl md:text-3xl font-bold font-heading">Nagły wypadek? Potrzebujesz porady?</h2>
+                <p class="text-white opacity-90 mt-2">Nie czekaj, zdrowie Twojego pupila jest najważniejsze.</p>
             </div>
+            <a href="tel:221234567" class="bg-white text-primary px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-100 transition transform hover:scale-105">
+                <i class="ph-bold ph-phone mr-2"></i> Zadzwoń teraz
+            </a>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Porada 1 -->
-                <article class="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition border border-gray-100">
-                    <div class="h-48 overflow-hidden">
-                        <img
+    <!-- STOPKA -->
+    <footer class="bg-gray-800 text-gray-400 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6 flex justify-center items-center gap-2">
+                <i class="ph-fill ph-paw-print text-primary text-2xl"></i>
+                <span class="text-white font-bold text-xl font-heading">AGA-VET</span>
+            </div>
+            <p class="text-sm mb-6 max-w-md mx-auto">
+                Nowoczesna przychodnia weterynaryjna w Warszawie. Zapewniamy profesjonalną opiekę medyczną dla Twoich zwierząt w przyjaznej atmosferze.
+            </p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="hover:text-white transition"><i class="ph-fill ph-facebook-logo text-2xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="ph-fill ph-instagram-logo text-2xl"></i></a>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-xs">
+                &copy; 2024 Przychodnia Weterynaryjna AGA-VET. Wszelkie prawa zastrzeżone.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SKRYPT JS DO MENU -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Zmiana cienia menu przy przewijaniu
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+    </script>
+</body>
+</html>
