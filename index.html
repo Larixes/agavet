@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGA-VET Przychodnia Weterynaryjna Warszawa</title>
+    <meta name="description" content="Nowoczesna przychodnia weterynaryjna AGA-VET w Warszawie. Profesjonalna opieka dla psów i kotów. Interna, chirurgia, profilaktyka.">
+    
+    <!-- Tailwind CSS (Do szybkiego stylowania) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ikony (Phosphor Icons - lekkie i nowoczesne) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Konfiguracja kolorów - TU ZMIEŃ KOLORY NA SWOJE -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Tutaj wpisz kod swojego głównego koloru (np. z logo)
+                        // Obecnie ustawiony jest przykładowy "Morski/Turkusowy"
+                        primary: '#00897b', 
+                        primaryDark: '#00695c',
+                        accent: '#fbbf24', // Kolor akcentu (np. żółty/pomarańczowy dla kontrastu)
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Dodatkowe style dla płynnego przewijania */
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            /* Zdjęcie w tle - placeholder. Warto podmienić na zdjęcie wnętrza gabinetu lub pacjenta */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1623366302587-bca29cbd4a77?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50">
+
+    <!-- NAGŁÓWEK (Sticky - przyklejony u góry) -->
+    <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-2 group">
+                <!-- Tu wstaw obrazek logo: <img src="logo.png" alt="Logo AGA-VET" class="h-12"> -->
+                <!-- Poniżej tymczasowe logo tekstowe -->
+                <div class="bg-primary text-white p-2 rounded-lg group-hover:bg-primaryDark transition">
+                    <i class="ph ph-paw-print text-2xl"></i>
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-2xl text-gray-800 tracking-tight">AGA-VET</span>
+                    <p class="text-xs text-gray-500 font-medium tracking-wider">PRZYCHODNIA WETERYNARYJNA</p>
+                </div>
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <nav class="hidden md:flex gap-4 lg:gap-6 items-center font-medium text-sm lg:text-base">
+                <a href="#o-nas" class="hover:text-primary transition">O nas</a>
+                <a href="#uslugi" class="hover:text-primary transition">Usługi</a>
+                <a href="#kwalifikacje" class="hover:text-primary transition">Kwalifikacje</a>
+                <a href="#galeria" class="hover:text-primary transition">Galeria</a>
+                <a href="#porady" class="hover:text-primary transition">Porady</a>
+                <a href="#zespol" class="hover:text-primary transition">Zespół</a>
+                <a href="#kontakt" class="hover:text-primary transition">Kontakt</a>
+                <a href="tel:221234567" class="bg-primary text-white px-4 py-2 rounded-full font-bold hover:bg-primaryDark transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <i class="ph ph-phone"></i> <span class="hidden lg:inline">Zadzwoń</span>
+                </a>
+            </nav>
+
+            <!-- MENU MOBILE BUTTON -->
+            <button class="md:hidden text-3xl text-gray-800 focus:outline-none" onclick="toggleMenu()">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+        <!-- MENU MOBILE (Rozwijane) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full left-0 shadow-lg h-screen overflow-y-auto pb-20">
+            <div class="flex flex-col p-4 gap-4 text-center">
+                <a href="#o-nas" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">O nas</a>
+                <a href="#uslugi" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Usługi</a>
+                <a href="#kwalifikacje" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Kwalifikacje</a>
+                <a href="#galeria" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Galeria</a>
+                <a href="#porady" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Porady</a>
+                <a href="#zespol" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Zespół</a>
+                <a href="#kontakt" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Kontakt</a>
+                <a href="tel:221234567" class="bg-primary text-white py-3 rounded-lg font-bold flex justify-center items-center gap-2">
+                    <i class="ph ph-phone"></i> Zadzwoń teraz
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-bg h-screen min-h-[500px] flex items-center justify-center text-white text-center px-4 pt-16">
+        <div class="max-w-3xl animate-fade-in-up">
+            <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Twoj pupil w <span class="text-accent">dobrych rękach</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 text-gray-100 opacity-90">
+                Profesjonalna opieka weterynaryjna z pasją i zaangażowaniem.
+                Nowoczesny sprzęt, doświadczony zespół i miła atmosfera.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#kontakt" class="bg-primary hover:bg-primaryDark text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
+                    Umów wizytę
+                </a>
+                <a href="#uslugi" class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
+                    Nasza oferta
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO BAR (Szybki kontakt) -->
+    <div class="bg-gray-100 py-6 border-b">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center md:justify-around gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-map-pin text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase">Lokalizacja</p>
+                    <p class="font-medium">ul. Wrzeciono 33 lok. B, Warszawa</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-clock text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase">Dzisiaj otwarte</p>
+                    <!-- Tu można dodać skrypt sprawdzający dzień tygodnia, na razie statycznie -->
+                    <p class="font-medium">10:00 - 21:00</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-phone-call text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase">Rejestracja</p>
+                    <a href="tel:221234567" class="font-medium hover:text-primary transition">+48 22 123 45 67</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- O NAS -->
+    <section id="o-nas" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pies u weterynarza" class="rounded-2xl shadow-2xl w-full object-cover h-[400px]">
+                        <div class="absolute -bottom-6 -right-6 bg-accent p-6 rounded-xl shadow-lg hidden md:block">
+                            <p class="text-3xl font-bold text-gray-900">10+</p>
+                            <p class="text-sm font-semibold uppercase tracking-wide">Lat doświadczenia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                        Dbamy o zdrowie Twoich przyjaciół
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Przychodnia Weterynaryjna AGA-VET to miejsce stworzone z miłości do zwierząt. Nasz zespół składa się z doświadczonych lekarzy weterynarii, którzy stale podnoszą swoje kwalifikacje.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Dysponujemy nowoczesnym sprzętem diagnostycznym, dzięki czemu jesteśmy w stanie szybko rozpoznać problem i wdrożyć skuteczne leczenie. Do każdego pacjenta podchodzimy indywidualnie, dbając o jego komfort i bezpieczeństwo.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            <span>Kompleksowa diagnostyka na miejscu</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            <span>Przyjazna atmosfera bez stresu</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            <span>Indywidualne podejście do diety i profilaktyki</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USŁUGI -->
+    <section id="uslugi" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Nasze Usługi</h2>
+                <p class="text-gray-600">Oferujemy pełen zakres opieki weterynaryjnej, od profilaktyki po skomplikowane zabiegi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Usługa 1: Profilaktyka -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-shield-check text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Profilaktyka</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Szczepienia ochronne</li>
+                        <li>Okresowe odrobaczanie</li>
+                        <li>Ochrona przed kleszczami i pchłami</li>
+                        <li>Badania okresowe (krwi, moczu, kardiologiczne, okulistyczne)</li>
+                        <li>Chipowanie i paszporty</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 2: Interna -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-stethoscope text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Interna</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Gastroenterologia</li>
+                        <li>Choroby układu oddechowego</li>
+                        <li>Urologia</li>
+                        <li>Endokrynologia</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 3: Chirurgia -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-knife text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Chirurgia</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Zabiegi chirurgii miękkiej</li>
+                        <li>Operacje sterylizacji i kastracji</li>
+                        <li>Konsultacje chirurgiczne</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 4: Stomatologia -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-tooth text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Stomatologia</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Usuwanie kamienia (ultradźwięki)</li>
+                        <li>Ekstrakcja zębów</li>
+                        <li>Leczenie chorób przyzębia</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 5: Dermatologia -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-bandaids text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Dermatologia</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Pełna diagnostyka (bakteriologia, zeskrobiny, testy alergiczne, biopsja)</li>
+                        <li>Terapia atopii i alergii</li>
+                        <li>Leczenie zakażeń (nużeniec, świerzb)</li>
+                        <li>Choroby autoagresywne</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 6: Położnictwo -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-baby text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Położnictwo</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Diagnoza i prowadzenie ciąży</li>
+                        <li>Pomoc porodowa (także chirurgiczna)</li>
+                        <li>Zapobieganie rui i ciąży</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 7: Diagnostyka Obrazowa -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-scan text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">USG i Rentgen</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Badania USG jamy brzusznej</li>
+                        <li>Zdjęcia Rentgenowskie (RTG)</li>
+                        <li>Nowoczesna diagnostyka obrazowa</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 8: Laboratorium -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-flask text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Laboratorium</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-2">Pełen zakres badań analitycznych.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Współpracujemy z 3 dużymi laboratoriami w Warszawie, co gwarantuje precyzję wyników.</p>
+                </div>
+
+                <!-- Usługa 9: Pielęgnacja -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-scissors text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Strzyżenie Psów</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Profesjonalne strzyżenie i pielęgnacja psów. Zadbaj o wygląd i higienę swojego pupila w naszym gabinecie.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- KWALIFIKACJE -->
+    <section id="kwalifikacje" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/2 order-2 md:order-1">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">Nasze Kwalifikacje</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Nasz zespół nieustannie podnosi swoje kompetencje, uczestnicząc w licznych konferencjach, sympozjach i szkoleniach weterynaryjnych w Polsce i za granicą.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
+                            <i class="ph-fill ph-certificate text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Specjalizacja z chirurgii</h4>
+                                <p class="text-xs text-gray-500">Uniwersytet Przyrodniczy</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
+                            <i class="ph-fill ph-certificate text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Dermatologia kliniczna</h4>
+                                <p class="text-xs text-gray-500">Certyfikat ESAVS</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
+                            <i class="ph-fill ph-certificate text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Diagnostyka obrazowa</h4>
+                                <p class="text-xs text-gray-500">Warsztaty USG/RTG</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3 p-4 border rounded-lg hover:border-primary transition">
+                            <i class="ph-fill ph-certificate text-primary text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold text-sm mb-1">Stomatologia weterynaryjna</h4>
+                                <p class="text-xs text-gray-500">PSLWMZ</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2 order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1599443015574-be5fe8a05783?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certyfikaty na ścianie" class="rounded-xl shadow-lg w-full h-80 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERIA -->
+    <section id="galeria" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Galeria Pacjentów</h2>
+                <p class="text-gray-600">Nasi dzielni pacjenci i codzienna praca przychodni.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Zdjęcia galeria (Placeholdery) -->
+                <div class="col-span-2 row-span-2 relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 1">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-0 transition"></div>
+                </div>
+                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 2">
+                </div>
+                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 3">
+                </div>
+                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1596272875729-ed2c21ebbbda?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 4">
+                </div>
+                <div class="col-span-1 row-span-1 relative group overflow-hidden rounded-xl cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500" alt="Pacjent 5">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORADY -->
+    <section id="porady" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-2">Porady Weterynarza</h2>
+                    <p class="text-gray-600">Baza wiedzy dla odpowiedzialnych właścicieli.</p>
+                </div>
+                <!-- <a href="#" class="text-primary font-bold hover:underline hidden md:block">Zobacz wszystkie wpisy &rarr;</a> -->
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Porada 1 -->
+                <article class="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition border border-gray-100">
+                    <div class="h-48 overflow-hidden">
+                        <img
