@@ -147,9 +147,8 @@
                     <i class="ph ph-clock text-2xl"></i>
                 </div>
                 <div>
-                    <p class="text-sm text-gray-500 font-bold uppercase">Dzisiaj otwarte</p>
-                    <!-- Tu można dodać skrypt sprawdzający dzień tygodnia, na razie statycznie -->
-                    <p class="font-medium">10:00 - 21:00</p>
+                    <p class="text-sm text-gray-500 font-bold uppercase" id="today-label">Dzisiaj otwarte</p>
+                    <p class="font-medium" id="today-hours">Ładowanie...</p>
                 </div>
             </div>
             <div class="flex items-center gap-3">
@@ -504,6 +503,56 @@
                 header.classList.remove('shadow-lg');
             }
         });
+
+        // POBIERANIE GODZIN Z GOOGLE SHEETS
+        const googleSheetCsvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSc9WCQ5A9-7wwrjUn_Y1hp0FOd_uIswKRMyaMzRKaVhjyHqiJamyxSy0nRhASn3Y_YQltOgGnNz40F/pub?gid=0&single=true&output=csv';
+
+        async function updateOpeningHours() {
+            const hoursElement = document.getElementById('today-hours');
+            const today = new Date().getDay(); // Pobiera aktualny dzień (0 = Niedziela, 1 = Poniedziałek, itd.)
+
+            // Jeśli nie wklejono jeszcze linku, wyświetl domyślne stałe godziny
+            if (googleSheetCsvUrl === 'WSTAW_TUTAJ_LINK_Z_GOOGLE_SHEETS') {
+                hoursElement.innerText = "10:00 - 21:00"; 
+                return;
+            }
+
+            try {
+                // Pobranie danych z opublikowanego arkusza (format CSV)
+                const response = await fetch(googleSheetCsvUrl);
+                if (!response.ok) throw new Error('Brak dostępu do pliku');
+                const csvData = await response.text();
+                
+                // Rozdzielenie danych na wiersze
+                const rows = csvData.split('\n');
+                let foundHours = "Brak danych";
+
+                // Przeszukiwanie wierszy, aby znaleźć dzisiejszy numer dnia w kolumnie 1
+                for (let row of rows) {
+                    const columns = row.split(',');
+                    if (columns.length >= 2) {
+                        const dayNumber = parseInt(columns[0].trim());
+                        if (dayNumber === today) {
+                            foundHours = columns[1].trim();
+                            // Usunięcie ewentualnych cudzysłowów i znaków nowej linii
+                            foundHours = foundHours.replace(/^"|"$/g, '').replace('\r', '');
+                            break;
+                        }
+                    }
+                }
+
+                // Wstawienie znalezionych godzin na stronę
+                hoursElement.innerText = foundHours;
+
+            } catch (error) {
+                console.error('Błąd pobierania godzin:', error);
+                // W razie błędu awaryjny tekst
+                hoursElement.innerText = "Sprawdź grafik na FB"; 
+            }
+        }
+
+        // Uruchomienie funkcji sprawdzającej od razu po załadowaniu strony
+        document.addEventListener('DOMContentLoaded', updateOpeningHours);
     </script>
 </body>
 </html>
