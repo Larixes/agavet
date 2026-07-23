@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGA-VET Przychodnia Weterynaryjna Warszawa</title>
+    <meta name="description" content="Nowoczesna przychodnia weterynaryjna AGA-VET w Warszawie. Profesjonalna opieka dla psów i kotów. Interna, chirurgia, profilaktyka.">
+    
+    <!-- Tailwind CSS (Do szybkiego stylowania) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Ikony (Phosphor Icons - lekkie i nowoczesne) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+    <!-- Konfiguracja kolorów - TU ZMIEŃ KOLORY NA SWOJE -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        // Tutaj wpisz kod swojego głównego koloru (np. z logo)
+                        // Obecnie ustawiony jest przykładowy "Morski/Turkusowy"
+                        primary: '#00897b', 
+                        primaryDark: '#00695c',
+                        accent: '#fbbf24', // Kolor akcentu (np. żółty/pomarańczowy dla kontrastu)
+                    },
+                    fontFamily: {
+                        sans: ['Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Dodatkowe style dla płynnego przewijania */
+        html {
+            scroll-behavior: smooth;
+        }
+        .hero-bg {
+            /* Zdjęcie w tle - uśmiechnięta pani doktor z pieskiem */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('AGA-VET10.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-gray-50">
+
+    <!-- NAGŁÓWEK (Sticky - przyklejony u góry) -->
+    <header class="fixed w-full bg-white shadow-md z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <!-- LOGO -->
+            <a href="#" class="flex items-center gap-2 group">
+                <!-- Tu wstaw obrazek logo, np: <img src="logo.png" alt="Logo AGA-VET" class="h-12"> -->
+                <div class="bg-primary text-white p-2 rounded-lg group-hover:bg-primaryDark transition">
+                    <i class="ph ph-paw-print text-2xl"></i>
+                </div>
+                <div>
+                    <span class="font-heading font-bold text-2xl text-gray-800 tracking-tight">AGA-VET</span>
+                    <p class="text-xs text-gray-500 font-medium tracking-wider">PRZYCHODNIA WETERYNARYJNA</p>
+                </div>
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <nav class="hidden md:flex gap-4 lg:gap-6 items-center font-medium text-sm lg:text-base">
+                <a href="#o-nas" class="hover:text-primary transition">O nas</a>
+                <a href="#uslugi" class="hover:text-primary transition">Usługi</a>
+                <a href="#zespol" class="hover:text-primary transition">Zespół</a>
+                <a href="#kontakt" class="hover:text-primary transition">Kontakt</a>
+                <a href="tel:+48690071411" class="bg-primary text-white px-4 py-2 rounded-full font-bold hover:bg-primaryDark transition flex items-center gap-2 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                    <i class="ph ph-phone"></i> <span class="hidden lg:inline">Zadzwoń</span>
+                </a>
+            </nav>
+
+            <!-- MENU MOBILE BUTTON -->
+            <button class="md:hidden text-3xl text-gray-800 focus:outline-none" onclick="toggleMenu()">
+                <i class="ph ph-list"></i>
+            </button>
+        </div>
+
+        <!-- MENU MOBILE (Rozwijane) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t absolute w-full left-0 shadow-lg h-screen overflow-y-auto pb-20">
+            <div class="flex flex-col p-4 gap-4 text-center">
+                <a href="#o-nas" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">O nas</a>
+                <a href="#uslugi" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Usługi</a>
+                <a href="#zespol" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Zespół</a>
+                <a href="#kontakt" class="text-lg py-2 hover:bg-gray-50 rounded" onclick="toggleMenu()">Kontakt</a>
+                <a href="tel:+48690071411" class="bg-primary text-white py-3 rounded-lg font-bold flex justify-center items-center gap-2">
+                    <i class="ph ph-phone"></i> Zadzwoń teraz
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero-bg h-screen min-h-[500px] flex items-center justify-center text-white text-center px-4 pt-16">
+        <div class="max-w-3xl animate-fade-in-up">
+            <h1 class="font-heading text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                Twoj pupil w <span class="text-accent">dobrych rękach</span>
+            </h1>
+            <p class="text-lg md:text-xl mb-8 text-gray-100 opacity-90">
+                Profesjonalna opieka weterynaryjna z pasją i zaangażowaniem.
+                Nowoczesny sprzęt, doświadczony zespół i miła atmosfera.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#uslugi" class="bg-primary hover:bg-primaryDark text-white px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
+                    Nasza oferta
+                </a>
+                <a href="#kontakt" class="bg-white hover:bg-gray-100 text-gray-900 px-8 py-4 rounded-lg font-bold text-lg transition shadow-lg">
+                    Kontakt i Grafik
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- INFO BAR (Szybki kontakt) -->
+    <div class="bg-gray-100 py-6 border-b">
+        <div class="container mx-auto px-4 flex flex-wrap justify-center md:justify-around gap-6 text-center md:text-left">
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-map-pin text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase">Lokalizacja</p>
+                    <p class="font-medium">ul. Wrzeciono 33 lok. B, Warszawa</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-calendar-check text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase">Grafik pracy</p>
+                    <a href="https://www.facebook.com" target="_blank" class="font-medium hover:text-primary transition text-primary">Sprawdź na Facebooku &rarr;</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-clock text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase" id="today-label">Dzisiaj otwarte</p>
+                    <p class="font-medium" id="today-hours">Ładowanie...</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <div class="bg-white p-3 rounded-full text-primary shadow-sm">
+                    <i class="ph ph-phone-call text-2xl"></i>
+                </div>
+                <div>
+                    <p class="text-sm text-gray-500 font-bold uppercase">Telefon</p>
+                    <a href="tel:+48690071411" class="font-medium hover:text-primary transition">+48 690 071 411</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- O NAS -->
+    <section id="o-nas" class="py-16 md:py-24 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/2">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Pies u weterynarza" class="rounded-2xl shadow-2xl w-full object-cover h-[400px]">
+                        <div class="absolute -bottom-6 -right-6 bg-accent p-6 rounded-xl shadow-lg hidden md:block">
+                            <p class="text-3xl font-bold text-gray-900">10+</p>
+                            <p class="text-sm font-semibold uppercase tracking-wide">Lat doświadczenia</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6 text-gray-800">
+                        Dbamy o zdrowie Twoich przyjaciół
+                    </h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Przychodnia Weterynaryjna AGA-VET to miejsce stworzone z miłości do zwierząt. Nasz zespół składa się z doświadczonych lekarzy weterynarii, którzy stale podnoszą swoje kwalifikacje.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        Dysponujemy nowoczesnym sprzętem diagnostycznym, dzięki czemu jesteśmy w stanie szybko rozpoznać problem i wdrożyć skuteczne leczenie. Do każdego pacjenta podchodzimy indywidualnie, dbając o jego komfort i bezpieczeństwo.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            <span>Kompleksowa diagnostyka na miejscu</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            <span>Przyjazna atmosfera bez stresu</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="ph-fill ph-check-circle text-primary text-xl"></i>
+                            <span>Indywidualne podejście do diety i profilaktyki</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USŁUGI -->
+    <section id="uslugi" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Nasze Usługi</h2>
+                <p class="text-gray-600">Oferujemy pełen zakres opieki weterynaryjnej, od profilaktyki po skomplikowane zabiegi.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Usługa 1: Profilaktyka -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-shield-check text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Profilaktyka</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Szczepienia ochronne</li>
+                        <li>Okresowe odrobaczanie</li>
+                        <li>Ochrona przed kleszczami i pchłami</li>
+                        <li>Badania okresowe krwi i moczu</li>
+                        <li>Chipowanie i paszporty</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 2: Interna -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-stethoscope text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Interna</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Gastroenterologia</li>
+                        <li>Choroby układu oddechowego</li>
+                        <li>Urologia</li>
+                        <li>Endokrynologia</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 3: Chirurgia -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-knife text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Chirurgia</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Zabiegi chirurgii miękkiej</li>
+                        <li>Operacje sterylizacji i kastracji</li>
+                        <li>Konsultacje chirurgiczne</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 4: Stomatologia -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-tooth text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Stomatologia</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Usuwanie kamienia (ultradźwięki)</li>
+                        <li>Ekstrakcja zębów</li>
+                        <li>Leczenie chorób przyzębia</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 5: Dermatologia -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-bandaids text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Dermatologia</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Pełna diagnostyka (bakteriologia, zeskrobiny, testy alergiczne, biopsja)</li>
+                        <li>Terapia atopii i alergii</li>
+                        <li>Leczenie zakażeń (nużeniec, świerzb)</li>
+                        <li>Choroby autoagresywne</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 6: Położnictwo -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-baby text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Położnictwo</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Diagnoza ciąży</li>
+                        <li>USG ciąży</li>
+                        <li>Zapobieganie rui i ciąży</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 7: Diagnostyka Obrazowa -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-scan text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">USG i Rentgen</h3>
+                    <ul class="text-gray-600 text-sm leading-relaxed space-y-2 list-disc pl-4">
+                        <li>Badania USG jamy brzusznej, szyi i klatki piersiowej</li>
+                        <li>Zdjęcia Rentgenowskie (RTG)</li>
+                        <li>Nowoczesna diagnostyka obrazowa</li>
+                    </ul>
+                </div>
+
+                <!-- Usługa 8: Laboratorium -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-flask text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Laboratorium</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed mb-2">Pełen zakres badań analitycznych.</p>
+                    <p class="text-gray-600 text-sm leading-relaxed">Współpracujemy z 3 dużymi laboratoriami w Warszawie, co gwarantuje precyzję wyników.</p>
+                </div>
+
+                <!-- Usługa 9: Pielęgnacja -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover:shadow-xl transition group border-t-4 border-transparent hover:border-primary">
+                    <div class="bg-blue-50 w-16 h-16 rounded-full flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="ph ph-scissors text-3xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-bold mb-3">Strzyżenie Psów</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Profesjonalne strzyżenie i pielęgnacja psów. Zadbaj o wygląd i higienę swojego pupila w naszym gabinecie.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ZESPÓŁ -->
+    <section id="zespol" class="py-16 md:py-24 bg-gray-50">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="font-heading text-3xl md:text-4xl font-bold mb-12">Nasz Zespół</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 
+                 <!-- Lekarz 1: Andrzej Zarajczyk -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col text-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">lek. wet. Andrzej Zarajczyk</h3>
+                        <p class="text-primary font-medium text-sm mb-4 leading-snug">Specjalista chorób psów i kotów, specjalista weterynaryjnej diagnostyki obrazowej</p>
+                        <p class="text-gray-800 text-sm font-bold mb-2">Specjalizacja: <span class="font-normal">choroby psów i kotów, badania USG psy/koty/kawie domowe</span></p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Absolwent Wydziału Medycyny Weterynaryjnej SGGW (2004 r.). Ukończył studia podyplomowe z zakresu chorób psów i kotów (2013 r.) oraz z zakresu weterynaryjnej diagnostyki obrazowej (2025 r.). Uczestnik licznych szkoleń i konferencji z zakresu diagnostyki i leczenia. Posiada dużą praktykę w badaniach USG.
+                        </p>
+                    </div>
+                 </div>
+
+                 <!-- Lekarz 2: Janusz Bogdański -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col text-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">lek. wet. Janusz Bogdański</h3>
+                        <p class="text-primary font-medium text-sm mb-4 leading-snug">Lekarz weterynarii</p>
+                        <p class="text-gray-800 text-sm font-bold mb-2">Specjalizacja: <span class="font-normal">interna, chirurgia</span></p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Absolwent Wydziału Medycyny Weterynaryjnej SGGW w Warszawie. Dyplom uzyskał w 2003 roku i w tym samym roku dołączył do zespołu lecznicy całodobowej na Ursynowie. Zajmuje się diagnostyką chorób wewnętrznych i chirurgią. Problemy zwierząt z pewnością nie są mu obce.
+                        </p>
+                    </div>
+                 </div>
+
+                 <!-- Lekarz 3: Agnieszka Bogdańska -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col text-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">lek. wet. Agnieszka Bogdańska</h3>
+                        <p class="text-primary font-medium text-sm mb-4 leading-snug">Specjalista weterynaryjnej diagnostyki laboratoryjnej</p>
+                        <p class="text-gray-800 text-sm font-bold mb-2">Specjalizacja: <span class="font-normal">interna</span></p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Absolwentka Wydziału Medycyny Weterynaryjnej SGGW (2010 r.). Ukończyła podyplomowe studia specjalizacyjne z zakresu weterynaryjnej diagnostyki laboratoryjnej (2025 r.). Po studiach rozpoczęła staż w całodobowej lecznicy na Ursynowie. Główne miejsce w jej zainteresowaniach zawodowych zajmują choroby wewnętrzne zwierząt towarzyszących.
+                        </p>
+                    </div>
+                 </div>
+
+                 <!-- Lekarz 4: Anita Wrocławska -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col text-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">lek. wet. Anita Wrocławska</h3>
+                        <p class="text-primary font-medium text-sm mb-4 leading-snug">Lekarz weterynarii</p>
+                        <p class="text-gray-800 text-sm font-bold mb-2">Specjalizacja: <span class="font-normal">strzyżenie psów, interna</span></p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Absolwentka Wydziału Medycyny Weterynaryjnej SGGW. Studia ukończyła w 2011 roku.
+                        </p>
+                    </div>
+                 </div>
+
+                 <!-- Lekarz 5: Katarzyna Pietrzak -->
+                 <div class="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition flex flex-col text-left">
+                    <div class="p-6 flex-grow">
+                        <h3 class="font-bold text-xl mb-1 text-gray-900">lek. wet. Katarzyna Pietrzak</h3>
+                        <p class="text-primary font-medium text-sm mb-4 leading-snug">Lekarz weterynarii</p>
+                        <p class="text-gray-800 text-sm font-bold mb-2">Specjalizacja: <span class="font-normal">interna, dermatologia</span></p>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Absolwentka Wydziału Medycyny Weterynaryjnej SGGW. Studia ukończyła w 2006 roku. Specjalizuje się w internie psów i kotów. Jest aktywną uczestniczką szkoleń z zakresu dermatologii.
+                        </p>
+                    </div>
+                 </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GODZINY I KONTAKT -->
+    <section id="kontakt" class="py-16 md:py-24 bg-white relative">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 shadow-2xl rounded-3xl overflow-hidden bg-white">
+                
+                <!-- Lewa strona: Info -->
+                <div class="bg-gray-900 text-white p-10 md:p-16 flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-y-1/2 translate-x-1/2"></div>
+                    
+                    <h2 class="font-heading text-3xl font-bold mb-8 relative z-10">Skontaktuj się z nami</h2>
+                    
+                    <div class="space-y-8 relative z-10">
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-map-pin text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Adres</h3>
+                                <p class="text-gray-300">ul. Wrzeciono 33 lok. B<br>01-963 Warszawa</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-phone text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">Telefon</h3>
+                                <a href="tel:+48690071411" class="text-2xl font-bold text-white hover:text-primary transition">690 071 411</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-envelope-simple text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-1">E-mail</h3>
+                                <a href="mailto:kontakt@aga-vet.pl" class="text-lg text-gray-300 hover:text-white transition">kontakt@aga-vet.pl</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <i class="ph-fill ph-calendar-check text-primary text-3xl mt-1"></i>
+                            <div>
+                                <h3 class="font-bold text-lg mb-3">Grafik pracy</h3>
+                                <p class="text-gray-300 text-sm mb-4">Aktualny grafik przyjęć poszczególnych lekarzy publikujemy na bieżąco na naszym profilu na Facebooku.</p>
+                                <a href="https://www.facebook.com" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-5 py-2 rounded-lg transition font-bold shadow-lg">
+                                    <i class="ph-bold ph-facebook-logo text-xl"></i> Zobacz profil
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Prawa strona: Mapa -->
+                <div class="h-[400px] lg:h-auto bg-gray-200 relative">
+                     <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2440.038073574218!2d20.93345431579916!3d52.29654197977254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecbe7f7e9a0ed%3A0x6b4f7b6b8b8b8b8b!2sWrzeciono+33%2C+01-963+Warszawa!5e0!3m2!1spl!2spl!4v1620000000000!5m2!1spl!2spl" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STOPKA -->
+    <footer class="bg-gray-800 text-gray-400 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-6 flex justify-center items-center gap-2">
+                <i class="ph-fill ph-paw-print text-primary text-2xl"></i>
+                <span class="text-white font-bold text-xl font-heading">AGA-VET</span>
+            </div>
+            <p class="text-sm mb-6 max-w-md mx-auto">
+                Nowoczesna przychodnia weterynaryjna w Warszawie. Zapewniamy profesjonalną opiekę medyczną dla Twoich zwierząt w przyjaznej atmosferze.
+            </p>
+            <div class="flex justify-center gap-6 mb-8">
+                <a href="#" class="hover:text-white transition"><i class="ph-fill ph-facebook-logo text-2xl"></i></a>
+                <a href="#" class="hover:text-white transition"><i class="ph-fill ph-instagram-logo text-2xl"></i></a>
+            </div>
+            <div class="border-t border-gray-700 pt-6 text-xs">
+                &copy; 2024 Przychodnia Weterynaryjna AGA-VET. Wszelkie prawa zastrzeżone.
+            </div>
+        </div>
+    </footer>
+
+    <!-- SKRYPT JS DO MENU -->
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Zmiana cienia menu przy przewijaniu
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('navbar');
+            if (window.scrollY > 20) {
+                header.classList.add('shadow-lg');
+            } else {
+                header.classList.remove('shadow-lg');
+            }
+        });
+
+        // POBIERANIE GODZIN Z GOOGLE SHEETS
+        const googleSheetCsvUrl = 'WSTAW_TUTAJ_LINK_Z_GOOGLE_SHEETS';
+
+        async function updateOpeningHours() {
+            const hoursElement = document.getElementById('today-hours');
+            const today = new Date().getDay(); // Pobiera aktualny dzień (0 = Niedziela, 1 = Poniedziałek, itd.)
+
+            // Jeśli nie wklejono jeszcze linku, wyświetl domyślne stałe godziny
+            if (googleSheetCsvUrl === 'WSTAW_TUTAJ_LINK_Z_GOOGLE_SHEETS') {
+                hoursElement.innerText = "10:00 - 21:00"; 
+                return;
+            }
+
+            try {
+                // Pobranie danych z opublikowanego arkusza (format CSV)
+                const response = await fetch(googleSheetCsvUrl);
+                if (!response.ok) throw new Error('Brak dostępu do pliku');
+                const csvData = await response.text();
+                
+                // Rozdzielenie danych na wiersze
+                const rows = csvData.split('\n');
+                let foundHours = "Brak danych";
+
+                // Przeszukiwanie wierszy, aby znaleźć dzisiejszy numer dnia w kolumnie 1
+                for (let row of rows) {
+                    const columns = row.split(',');
+                    if (columns.length >= 2) {
+                        const dayNumber = parseInt(columns[0].trim());
+                        if (dayNumber === today) {
+                            foundHours = columns[1].trim();
+                            // Usunięcie ewentualnych cudzysłowów i znaków nowej linii
+                            foundHours = foundHours.replace(/^"|"$/g, '').replace('\r', '');
+                            break;
+                        }
+                    }
+                }
+
+                // Wstawienie znalezionych godzin na stronę
+                hoursElement.innerText = foundHours;
+
+            } catch (error) {
+                console.error('Błąd pobierania godzin:', error);
+                // W razie błędu awaryjny tekst
+                hoursElement.innerText = "Sprawdź grafik na FB"; 
+            }
+        }
+
+        // Uruchomienie funkcji sprawdzającej od razu po załadowaniu strony
+        document.addEventListener('DOMContentLoaded', updateOpeningHours);
+    </script>
+</body>
+</html>
